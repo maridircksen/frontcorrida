@@ -1,53 +1,48 @@
 import React, {useState, useEffect} from 'react';
 import './styles.css';
-import logoCarro from '../../assets/car-solid.png';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import {FiTrash, FiEdit} from 'react-icons/fi';
-import {FaCar} from 'react-icons/fa';
+import {GiWorld} from 'react-icons/gi';
 
-export default function Carros(){
-    const [carros, setCarros] = useState([]);
+export default function Paises(){
+    const [paises, setPaises] = useState([]);
     
     useEffect(() => {
-        if (carros.length <=0){
-         api.get('Carro')
+        if (paises.length <=0){
+         api.get('Pais')
            .then(
-            response => {setCarros(response.data)}
+            response => {setPaises(response.data)}
             )
         }
     });
 
     return(
-        <div className='carro-container'>
+        <div className='pais-container'>
             <header>
-                <FaCar size={60} color="#17202a" alt ='Carros' />
-                <Link className='button' to="novo">Novo Carro</Link>
+                <GiWorld size={60} color="#17202a" alt ='Pais' />
+                <Link className='button' to="novo">Novo País</Link>
             </header>
-            <h1>Relação de Carros</h1>
+            <h1>Consultar Países</h1>
             <table className='table table-bordered'>
                 <thead>
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
-                        <th>Cor</th>
-                        <th>Pneus</th>
                         <th className='thOpcoes'>Opções</th>
                     </tr>
-                    {carros.map(carro => (
-                    <tr key={carro.id}>
-                        <td>{carro.id}</td>
-                        <td>{carro.nome}</td>
-                        <td>{carro.cor}</td>
-                        <td>{carro.pneus}</td>
+                    {paises.map(pais => (
+                    <tr key={pais.id}>
+                        <td>{pais.id}</td>
+                        <td>{pais.nome}</td>
                         <td className='tdOpcoes'>
-                            <Link to={`alterar/${carro.id}`}>
+                            <Link to={`alterar/${pais.id}`}>
                                 <button type='button'>
                                     <FiEdit size={25} color='#17202a' />
                                 </button>
                             </Link>
                             {" "}
-                            <Link to={`excluir/${carro.id}`}>
+                            <Link to={`excluir/${pais.id}`}>
                                 <button type='button'>
                                     <FiTrash size={25} color='#17202a' />
                                 </button>

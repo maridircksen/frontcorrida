@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import './styles.css';
-import {FiFilePlus, FiCornerDownLeft} from 'react-icons/fi';
+import {FiCornerDownLeft} from 'react-icons/fi';
+import {HiOutlineDocumentAdd} from 'react-icons/hi';
+import {AiFillHome} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
 import api from "../../services/api";
 
@@ -30,16 +32,19 @@ export default function NovoCarro(){
         <div className="novo-carro-container">
             <div className="Content">
                 <section className="form">
-                    <FiFilePlus size={105} color ="#17202a" />
-                    <h1>Novo Carro</h1>
+                    <a><HiOutlineDocumentAdd size={32} color ="#17202a" />Novo Carro </a>
                     <Link className="back-link" to="/carros">
-                        <FiCornerDownLeft size={105} color="#17202a" />
+                        <FiCornerDownLeft size={30} color="#17202a" data-toggle="tooltip" data-placement="top" title="Voltar para consulta" />
+                    </Link>
+                    {" "}
+                    <Link className="back-link" to="/">
+                        <AiFillHome size={30} color="#669AE1" data-toggle="tooltip" data-placement="top" title="Voltar para a página inicial" />
                     </Link>
                 </section>
                 <form onSubmit={postCarro}>
                     <input placeholder="Nome do Carro" onChange={e => setNovoNome(e.target.value)}/>
                     <input placeholder="Cor do Carro" onChange={e => setNovaCor(e.target.value)}/>
-                    <input placeholder="Tipo do Pneu" onChange={e => setNovosPneus(e.target.value)}/>
+                    <input type="number" placeholder="Tipo do Pneu" onChange={e => setNovosPneus(e.target.value)}/>
                     <button className="button" type="submit">Salvar</button>            
                 </form>
             </div>

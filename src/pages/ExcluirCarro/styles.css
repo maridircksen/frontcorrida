@@ -37,14 +37,14 @@
     display: block;
   }
   
-  .novo-carro-container .content section h1{
+  .novo-carro-container .content section a{
     margin: 64px 0 32px;
     font-size: 32px;
   }
   
   .novo-carro-container .content .formExibir{
     width: 100%;
-    max-width: 450px;
+    max-width: 250px;
   }
   
   .novo-carro-container .content .formExibir input{
