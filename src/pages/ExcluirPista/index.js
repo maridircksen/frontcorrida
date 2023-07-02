@@ -1,59 +1,60 @@
 import React, {useState, useCallback, useEffect} from "react";
 import './styles.css';
-import {FiFileMinus, FiCornerDownLeft} from 'react-icons/fi';
+import {FiCornerDownLeft} from 'react-icons/fi';
+import {FaRoad} from 'react-icons/fa';
 import {AiFillHome} from 'react-icons/ai';
 import {Link, useParams, useNavigate} from 'react-router-dom';
 import api from "../../services/api";
 
-export default function ExcluirCarro(){
+export default function ExcluirPista(){
     const {id} = useParams();
     const [nome, setNome] = useState('');
     const navigate = useNavigate();
     const [load, setLoad] = useState(false);
 
-    const loadCarro = useCallback(async () =>{
+    const loadPista = useCallback(async () =>{
         try{
-            const response = await api.get('Carro/' + id);
+            const response = await api.get('Pista/' + id);
             setNome(response.data.nome);
         }catch(error){
-            alert ("Erro ao buscar o carro! + erro");
-            navigate('/carros');
+            alert ("Erro ao buscar pista! + erro");
+            navigate('/pistas');
         }
     }, [id,setNome, navigate]);
 
     useEffect(() => {
         if(!load){
-            loadCarro();
+            loadPista();
             setLoad(true);
         }
     });
 
-    async function deleteCarro(){
+    async function deletePista(){
         try{
-            await api.delete(`Carro/${id}`);
+            await api.delete(`Pista/${id}`);
         }catch(error){
-            alert("Erro ao excluir cadastro de carro!" + error);
+            alert("Erro ao excluir cadastro de Pista!" + error);
         }
 
-        navigate('/carros');
+        navigate('/pistas');
     }
 
     return(
-        <div className="novo-carro-container">
+        <div className="nova-pista-container">
             <div className="content">
                 <section className="form">
-                    <a><FiFileMinus size={32} color ="#17202a" />Excluir Carro </a>
-                    <Link className="back-link" to="/carros">
+                    <a><FaRoad size={32} color ="#17202a" />{" "}Excluir Pista </a>
+                    <Link className="back-link" to="/pistas">
                         <FiCornerDownLeft size={30} color="#17202a" data-toggle="tooltip" data-placement="top" title="Voltar para consulta" />
                     </Link>
                     {" "}
                     <Link className="back-link" to="/">
-                        <AiFillHome size={30} color="#669AE1" data-toggle="tooltip" data-placement="top" title="Voltar para a página inicial" />
+                        <AiFillHome size={30} color="#62C2E4" data-toggle="tooltip" data-placement="top" title="Voltar para a página inicial" />
                     </Link>
                 </section>
                 <div className="formExibir">
                     <a>{id} | {nome}</a>
-                    <button className="button" onClick={deleteCarro}>Excluir</button>
+                    <button className="button" onClick={deletePista}>Excluir</button>
                 </div>
             </div>
 

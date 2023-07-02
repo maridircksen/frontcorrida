@@ -44,7 +44,7 @@ export default function NovoCarro(){
                 <form onSubmit={postCarro}>
                     <input placeholder="Nome do Carro" onChange={e => setNovoNome(e.target.value)}/>
                     <input placeholder="Cor do Carro" onChange={e => setNovaCor(e.target.value)}/>
-                    <input type="number" placeholder="Tipo do Pneu" onChange={e => setNovosPneus(e.target.value)}/>
+                    <input  placeholder="Tipo do Pneu" onChange={e => setNovosPneus(e.target.value)}/>
                     <button className="button" type="submit">Salvar</button>            
                 </form>
             </div>

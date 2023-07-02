@@ -39,7 +39,11 @@
     margin-left: 16px;
     transition: border-color 0.5s;
   }
-  
+
+  #inicio{
+    margin-right: 500px;
+    
+  }
   table {
     border: 1px solid black;
     border-radius: 8px;

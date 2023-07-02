@@ -43,7 +43,7 @@ export default function AlterarCarro(){
         }
 
         try{
-            await api.put('Carros', data);
+            await api.put('Carro', data);
         }catch(error){
             alert("Erro ao alterar cadastro de carro!" + error);
         }

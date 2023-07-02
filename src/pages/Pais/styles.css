@@ -40,6 +40,11 @@
   transition: border-color 0.5s;
 }
 
+#inicio{
+  margin-right: 350px;
+  
+}
+
 table {
   border: 1px solid black;
   border-radius: 8px;

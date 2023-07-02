@@ -38,7 +38,7 @@ export default function AlterarCidade(){
         }
 
         try{
-            await api.put('Cidades', data);
+            await api.put('Cidade', data);
         }catch(error){
             alert("Erro ao alterar cadastro de cidade!" + error);
         }

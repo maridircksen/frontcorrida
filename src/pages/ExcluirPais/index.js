@@ -31,7 +31,7 @@ export default function ExcluirPais(){
 
     async function deletePais(){
         try{
-            await api.delete(`Pais/Delete/${id}`);
+            await api.delete(`Pais/${id}`);
         }catch(error){
             alert("Erro ao excluir cadastro de País!" + error);
         }

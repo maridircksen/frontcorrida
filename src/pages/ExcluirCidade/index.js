@@ -31,7 +31,7 @@ export default function ExcluirCidade(){
 
     async function deleteCidade(){
         try{
-            await api.delete(`Cidade/Delete/${id}`);
+            await api.delete(`Cidade/${id}`);
         }catch(error){
             alert("Erro ao excluir cadastro de cidade!" + error);
         }

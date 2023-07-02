@@ -4,6 +4,7 @@ import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import {FiTrash, FiEdit} from 'react-icons/fi';
 import {GiWorld} from 'react-icons/gi';
+import {AiFillHome} from 'react-icons/ai';
 
 export default function Paises(){
     const [paises, setPaises] = useState([]);
@@ -21,6 +22,9 @@ export default function Paises(){
         <div className='pais-container'>
             <header>
                 <GiWorld size={60} color="#17202a" alt ='Pais' />
+                <Link id='inicio' to="/">
+                    <AiFillHome size={30} color="orange" data-toggle="tooltip" data-placement="top" title="Voltar para a página inicial" />
+                </Link>
                 <Link className='button' to="novo">Novo País</Link>
             </header>
             <h1>Consultar Países</h1>
